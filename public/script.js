@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const row = document.createElement('div');
 			row.className = 'd-flex justify-content-center mb-2';
 			keysGroup = row.appendChild(document.createElement('div'));
-			keysGroup.className = 'btn-group';
+			keysGroup.className = 'btn-group w-100';
 			rowKeys.forEach(key => {
 				const keyButton = document.createElement('button');
 				if (key === BackSpaceKey || key === EnterKey) {
