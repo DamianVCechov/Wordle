@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+	const VERSION = '1.01';
+
 	let timerInterval;
 	let startTime;
 	let elapsedTime = 0;
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const keyboardContainer = document.getElementById('keyboard-container');
 	const messageContainer = document.getElementById('message-container');
 	const messageToast = new bootstrap.Toast(messageContainer, { delay: 2000 });
-	const timerElement = document.getElementById('timer');
+
 	const EnterKey = '&crarr;';
 	const BackSpaceKey = '&#x232B;';
 	const keyboardLayout = [
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function updateTimerDisplay(ms) {
+		const timerElement = document.getElementById('timer');
 		timerElement.textContent = formatTime(ms);
 	}
 
@@ -136,13 +139,33 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function createKeyboard() {
+		let versionInserted = false;
+		let timerInserted = false;
+		const versionEl = document.createElement('span');
+		versionEl.id = 'version';
+		versionEl.className = 'badge text-bg-light text-muted ms-1 pt-2 fs-6';
+		versionEl.innerHTML = 'v' + VERSION;
+
+		const timerEl = document.createElement('span');
+		timerEl.id = 'timer';
+		timerEl.className = 'badge text-bg-light text-muted ms-1 pt-2 fs-6';
+		timerEl.innerHTML = '00:00';
+
 		keyboardContainer.innerHTML = '';
 
 		keyboardLayout.forEach(rowKeys => {
 			const row = document.createElement('div');
 			row.className = 'd-flex justify-content-center mb-2';
+			if (!versionInserted) {
+				row.appendChild(versionEl);
+				versionInserted = true;
+			}
 			keysGroup = row.appendChild(document.createElement('div'));
 			keysGroup.className = 'btn-group w-100';
+			if (!timerInserted) {
+				row.appendChild(timerEl);
+				timerInserted = true;
+			}
 			rowKeys.forEach(key => {
 				const keyButton = document.createElement('button');
 				if (key === BackSpaceKey || key === EnterKey) {
