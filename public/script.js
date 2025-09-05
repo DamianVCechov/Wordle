@@ -17,12 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	const messageContainer = document.getElementById('message-container');
 	const messageToast = new bootstrap.Toast(messageContainer, { delay: 2000 });
 	const timerElement = document.getElementById('timer');
+	const EnterKey = '&crarr;';
+	const BackSpaceKey = '&#x232B;';
 	const keyboardLayout = [
 		['Ď', 'Ť', 'Ň', 'Ó', 'Ú', 'Ů'],
 		['Ě', 'Š', 'Č', 'Ř', 'Ž', 'Ý', 'Á', 'Í', 'É'],
 		['Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P'],
 		['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-		['Bs', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', 'Enter']
+		[BackSpaceKey, 'Y', 'X', 'C', 'V', 'B', 'N', 'M', EnterKey]
 	];
 
 	async function startGame() {
@@ -143,13 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
 			keysGroup.className = 'btn-group';
 			rowKeys.forEach(key => {
 				const keyButton = document.createElement('button');
-				if (key === "Bs" || key === "Enter") {
+				if (key === BackSpaceKey || key === EnterKey) {
 					keyButton.className = 'btn btn-success fw-bold key';
 				} else {
-					keyButton.className = 'btn btn-outline-primary px-3 fw-bold key';
+					keyButton.className = 'btn btn-outline-primary fw-bold key';
 				}
-				keyButton.textContent = key;
-				keyButton.setAttribute('data-key', key.toLowerCase());
+				keyButton.innerHTML = key;
+				if (key === EnterKey) {
+					keyButton.setAttribute('data-key', 'enter');
+				} else if (key === BackSpaceKey) {
+					keyButton.setAttribute('data-key', 'bs');
+				} else {
+					keyButton.setAttribute('data-key', key.toLowerCase());
+				}
 				keysGroup.appendChild(keyButton);
 			});
 			keyboardContainer.appendChild(row);
