@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			rowKeys.forEach(key => {
 				const keyButton = document.createElement('button');
 				const keyLower = key.toLowerCase();
-				keyButton.className = 'btn btn-secondary p-2 mx-1 fw-bold key';
+				keyButton.className = 'btn btn-outline-secondary p-2 mx-1 fw-bold key';
 				if (key.length > 1) {
 					keyButton.classList.add('px-3');
 				}
