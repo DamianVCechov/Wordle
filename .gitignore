@@ -1,2 +1,4 @@
 /.project
 /.settings
+/.twistd.pid
+/public/data
