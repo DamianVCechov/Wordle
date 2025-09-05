@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	async function startGame() {
 		try {
 			const [answersResponse, guessesResponse] = await Promise.all([
-				fetch('tajenky.csv'),
-				fetch('slova.csv')
+				fetch('data/tajenky.csv'),
+				fetch('data/slova.csv')
 			]);
 			const answersText = await answersResponse.text();
 			const guessesText = await guessesResponse.text();
