@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	const messageContainer = document.getElementById('message-container');
 	const messageToast = new bootstrap.Toast(messageContainer, { delay: 2000 });
 	const timerElement = document.getElementById('timer');
-	const keys = [
-		'ň', 'ě', 'š', 'č', 'ř', 'ž', 'ý', 'á', 'í', 'é', 'ď',
-		'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p', 'ú',
-		'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ů', 'ť',
-		'Bs', 'y', 'x', 'c', 'v', 'b', 'n', 'm', 'Enter'
-	];
-
+    const keys = [
+                  'ď', 'ť', 'ň', 'ó', 'ú', 'ů',
+           'ě', 'š', 'č', 'ř', 'ž', 'ý', 'á', 'í', 'é',
+        'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p',
+           'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+         'Bs', 'y', 'x', 'c', 'v', 'b', 'n', 'm', 'Enter'
+    ];
 
 	async function startGame() {
 		try {
@@ -135,13 +135,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function createKeyboard() {
 		keyboardContainer.innerHTML = '';
-		const keyboardLayout = [
-			keys.slice(0, 11),
-			keys.slice(11, 22),
-			keys.slice(22, 33),
-			keys.slice(33)
-		];
-
+        const keyboardLayout = [
+            keys.slice(0, 6),
+            keys.slice(6, 15),
+            keys.slice(15, 25),
+            keys.slice(25, 34),
+            keys.slice(34)
+        ];
+        
 		keyboardLayout.forEach(rowKeys => {
 			const row = document.createElement('div');
 			row.className = 'd-flex justify-content-center mb-1';
