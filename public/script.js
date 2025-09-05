@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		keyboardLayout.forEach(rowKeys => {
 			const row = document.createElement('div');
-			row.className = 'd-flex justify-content-center mb-2';
+			row.className = 'd-flex justify-content-center mb-1';
 			if (!versionInserted) {
 				row.appendChild(versionEl);
 				versionInserted = true;
