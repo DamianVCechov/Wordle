@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	const messageToast = new bootstrap.Toast(messageContainer, { delay: 2000 });
 	const timerElement = document.getElementById('timer');
 	const keyboardLayout = [
-		['ď', 'ť', 'ň', 'ó', 'ú', 'ů'],
-		['ě', 'š', 'č', 'ř', 'ž', 'ý', 'á', 'í', 'é'],
-		['q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p'],
-		['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-		['Bs', 'y', 'x', 'c', 'v', 'b', 'n', 'm', 'Enter']
+		['Ď', 'Ť', 'Ň', 'Ó', 'Ú', 'Ů'],
+		['Ě', 'Š', 'Č', 'Ř', 'Ž', 'Ý', 'Á', 'Í', 'É'],
+		['Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P'],
+		['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+		['Bs', 'Y', 'X', 'C', 'V', 'B', 'N', 'M', 'Enter']
 	];
 
 	async function startGame() {
@@ -138,21 +138,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		keyboardLayout.forEach(rowKeys => {
 			const row = document.createElement('div');
-			row.className = 'd-flex justify-content-center mb-1';
+			row.className = 'd-flex justify-content-center mb-2';
+			keysGroup = row.appendChild(document.createElement('div'));
+			keysGroup.className = 'btn-group';
 			rowKeys.forEach(key => {
 				const keyButton = document.createElement('button');
-				const keyLower = key.toLowerCase();
 				if (key === "Bs" || key === "Enter") {
-					keyButton.className = 'btn btn-success p-2 mx-1 fw-bold key';
+					keyButton.className = 'btn btn-success fw-bold key';
 				} else {
-					keyButton.className = 'btn btn-outline-primary p-2 mx-1 fw-bold key';
-				}
-				if (key.length > 1) {
-					keyButton.classList.add('px-3');
+					keyButton.className = 'btn btn-outline-primary px-3 fw-bold key';
 				}
 				keyButton.textContent = key;
-				keyButton.setAttribute('data-key', keyLower);
-				row.appendChild(keyButton);
+				keyButton.setAttribute('data-key', key.toLowerCase());
+				keysGroup.appendChild(keyButton);
 			});
 			keyboardContainer.appendChild(row);
 		});
