@@ -1,4 +1,4 @@
 /.project
 /.settings
-/twistd.pid
+twistd.pid
 /public/data
