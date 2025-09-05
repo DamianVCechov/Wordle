@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		keyboardContainer.innerHTML = '';
 
 		keyboardLayout.forEach(rowKeys => {
-			console.log(rowKeys)
 			const row = document.createElement('div');
 			row.className = 'd-flex justify-content-center mb-1';
 			rowKeys.forEach(key => {
