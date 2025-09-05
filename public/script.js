@@ -167,11 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function handlePhysicalKeyboard(e) {
 		const key = e.key;
+		let keys = keyboardLayout.flat();
 		if (key === 'Enter') {
 			handleKeyPress('enter');
 		} else if (key === 'Backspace') {
 			handleKeyPress('bs');
-		} else if (keys.includes(key.toLowerCase())) {
+		} else if (keys.includes(key.toUpperCase())) {
 			handleKeyPress(key.toLowerCase());
 		}
 	}
