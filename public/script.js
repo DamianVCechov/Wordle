@@ -143,12 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		let timerInserted = false;
 		const versionEl = document.createElement('span');
 		versionEl.id = 'version';
-		versionEl.className = 'badge text-bg-light text-muted ms-1 pt-2 fs-6';
+		versionEl.className = 'badge text-bg-light text-muted pt-2 fs-6';
 		versionEl.innerHTML = 'v' + VERSION;
 
 		const timerEl = document.createElement('span');
 		timerEl.id = 'timer';
-		timerEl.className = 'badge text-bg-light text-muted ms-1 pt-2 fs-6';
+		timerEl.className = 'badge text-bg-light text-muted pt-2 fs-6';
 		timerEl.innerHTML = '00:00';
 
 		keyboardContainer.innerHTML = '';
