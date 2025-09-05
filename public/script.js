@@ -148,7 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			rowKeys.forEach(key => {
 				const keyButton = document.createElement('button');
 				const keyLower = key.toLowerCase();
-				keyButton.className = 'btn btn-outline-secondary p-2 mx-1 fw-bold key';
+				if (key === "Bs" || key === "Enter") {
+					keyButton.className = 'btn btn-success p-2 mx-1 fw-bold key';
+				} else {
+					keyButton.className = 'btn btn-outline-primary p-2 mx-1 fw-bold key';
+				}
 				if (key.length > 1) {
 					keyButton.classList.add('px-3');
 				}
