@@ -168,10 +168,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 			rowKeys.forEach(key => {
 				const keyButton = document.createElement('button');
+<<<<<<< HEAD
 				if (key === BackSpaceKey || key === EnterKey) {
 					keyButton.className = 'btn btn-success py-2 p-lg-3 fw-bold key';
 				} else {
 					keyButton.className = 'btn btn-outline-primary py-2 p-lg-3 fw-bold key';
+=======
+				if (key === BackSpaceKey) {
+					keyButton.className = 'btn btn-danger py-2 py-lg-3 fw-bold key';
+				} 
+                else if (key === EnterKey) {
+                    keyButton.className = 'btn btn-success py-2 py-lg-3 fw-bold key';
+                }
+                else {
+					keyButton.className = 'btn btn-outline-primary py-2 py-lg-3 fw-bold key';
+>>>>>>> branch 'main' of git@github.com:DamianVCechov/Wordle.git
 				}
 				keyButton.innerHTML = key;
 				if (key === EnterKey) {
