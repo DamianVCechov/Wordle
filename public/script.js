@@ -174,23 +174,22 @@ document.addEventListener('DOMContentLoaded', () => {
 					keyButton.className = 'btn btn-outline-primary py-2 p-lg-3 fw-bold key';
 					if (key === BackSpaceKey) {
 						keyButton.className = 'btn btn-danger py-2 py-lg-3 fw-bold key';
-					}
-					else if (key === EnterKey) {
+					} else if (key === EnterKey) {
 						keyButton.className = 'btn btn-success py-2 py-lg-3 fw-bold key';
-					}
-					else {
+					} else {
 						keyButton.className = 'btn btn-outline-primary py-2 py-lg-3 fw-bold key';
 					}
-					keyButton.innerHTML = key;
-					if (key === EnterKey) {
-						keyButton.setAttribute('data-key', 'enter');
-					} else if (key === BackSpaceKey) {
-						keyButton.setAttribute('data-key', 'bs');
-					} else {
-						keyButton.setAttribute('data-key', key.toLowerCase());
-					}
-					keysGroup.appendChild(keyButton);
-				});
+				}
+				keyButton.innerHTML = key;
+				if (key === EnterKey) {
+					keyButton.setAttribute('data-key', 'enter');
+				} else if (key === BackSpaceKey) {
+					keyButton.setAttribute('data-key', 'bs');
+				} else {
+					keyButton.setAttribute('data-key', key.toLowerCase());
+				}
+				keysGroup.appendChild(keyButton);
+			});
 			keyboardContainer.appendChild(row);
 		});
 	}
@@ -282,8 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		const correctPositions = {};
 
 		const secretLetterCounts = [...secretWord].reduce((acc, letter) => {
-			acc[letter] = (acc[letter] || 0) + 1;
-			return acc;
+				acc[letter] = (acc[letter] || 0) + 1;
+				return acc;
 		}, {});
 
 		for (let i = 0; i <= currentRow; i++) {
